@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vulnerability Assessment Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+        td, th {
+            padding: 10px;
+            text-align: left;
+        }
+        .high { background-color: #e74c3c; color: white; }
+        .medium { background-color: #f39c12; }
+        .low { background-color: #3498db; color: white; }
+    </style>
+</head>
+
+<body>
+
+<h1>Vulnerability Assessment Report</h1>
+
+<h2>Target Information</h2>
+<p><b>Target IP:</b> 192.168.38.131</p>
+<p><b>Tool Used:</b> OpenVAS, Nmap</p>
+
+<h2>Scan Summary</h2>
+<table>
+<tr>
+<th>Severity</th>
+<th>Count</th>
+</tr>
+<tr class="high">
+<td>High</td>
+<td>18</td>
+</tr>
+<tr class="medium">
+<td>Medium</td>
+<td>35</td>
+</tr>
+<tr class="low">
+<td>Low</td>
+<td>3</td>
+</tr>
+</table>
+
+<h2>Vulnerabilities Identified</h2>
+<ul>
+<li><b>FTP (Port 21):</b> Anonymous login allowed → Unauthorized file access</li>
+<li><b>Telnet (Port 23):</b> Unencrypted communication → Credential theft</li>
+<li><b>HTTP (Port 80):</b> Outdated Apache server → Known exploits</li>
+<li><b>SMB (Ports 139/445):</b> Message signing disabled → Unauthorized access</li>
+<li><b>MySQL (Port 3306):</b> Weak credentials → Database compromise</li>
+<li><b>PostgreSQL (Port 5432):</b> Weak password → Data exposure</li>
+<li><b>VNC (Port 5900):</b> Weak password → Remote access</li>
+<li><b>UnrealIRCd (Port 6667):</b> Backdoor vulnerability → Remote execution</li>
+<li><b>DistCC (Port 3632):</b> Remote command execution</li>
+<li><b>Rexec/Rlogin:</b> Cleartext authentication → High risk</li>
+<li><b>PHP Info Disclosure:</b> Sensitive system information leak</li>
+<li><b>SSL/TLS Issues:</b> Weak encryption, expired certificates</li>
+</ul>
+
+<h2>Risk Analysis</h2>
+<table>
+<tr>
+<th>Severity</th>
+<th>Vulnerabilities</th>
+<th>Impact</th>
+</tr>
+<tr class="high">
+<td>High</td>
+<td>FTP, Telnet, SMB, MySQL, Backdoors</td>
+<td>Full system compromise, remote execution</td>
+</tr>
+<tr class="medium">
+<td>Medium</td>
+<td>Apache, Tomcat, SSL Issues</td>
+<td>Data exposure, partial compromise</td>
+</tr>
+<tr class="low">
+<td>Low</td>
+<td>DNS, SSH Weak Config</td>
+<td>Information disclosure</td>
+</tr>
+</table>
+
+<h2>Mitigation Strategies</h2>
+<ul>
+<li>Disable anonymous FTP access</li>
+<li>Replace Telnet with SSH</li>
+<li>Update Apache and Tomcat servers</li>
+<li>Enable SMB security configurations</li>
+<li>Update database services</li>
+<li>Use firewall rules to restrict access</li>
+<li>Perform regular security updates</li>
+<li>Disable unused services (rexec, rlogin)</li>
+<li>Use strong passwords and authentication</li>
+<li>Enable SSL/TLS with secure configurations</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>
+The assessment identified multiple critical vulnerabilities due to outdated services,
+weak authentication, and insecure configurations. Immediate remediation is required
+to reduce the attack surface and improve system security.
+</p>
+
+</body>
+</html>
